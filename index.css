@@ -1,7 +1,58 @@
-/*This makes sure that the padding and border are 
-included in the total width and height of the elements.*/
+/*This makes sure that the padding and border are included 
+  in the total width and height of the elements.*/
 * {
     box-sizing: border-box;
+}
+
+/* Grid Layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: auto 200px 800px auto;
+    grid-template-rows: 700px;
+    background-color: #2196F3;
+    padding: 10px;
+    gap: 5px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    text-align: center;
+}
+
+.item1 {
+    grid-column: 2;
+}
+
+.item2 {
+    grid-column: 3;
+}
+
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+header {
+    background-color: rgba(200, 200, 200, 0.8);
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* Grid view example
+
+.item1 {
+    background-color: white;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    grid-column: 1 / span 2;
+    grid-row: 2 / 4;
 }
 
 .col-1 {width: 8.33%;}
@@ -20,13 +71,23 @@ included in the total width and height of the elements.*/
 [class*="col-"] {
     float: left;
     padding: 15px;
-    /*border: 1px solid red;*/
+    border: 1px solid red;
 }
 
 .row::after {
     content: "";
     clear: both;
     display: table;
+}
+
+/* Tells the column classes to all switch to 100% 
+   when the screen gets small enough*//*
+@media only screen and (max-width: 768px)
+{
+    [class*="col-"]
+    {
+        width: 100%;
+    }
 }
 
 html {
@@ -56,3 +117,5 @@ html {
 .menu li:hover {
     background-color: #0099cc;
 }
+
+*/
