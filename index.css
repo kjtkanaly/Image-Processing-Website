@@ -1,3 +1,9 @@
+/* Global Variables */
+:root {
+    --blue: #1e90ff;
+    --MainBodyWidth: 1100px;
+  }
+
 /*This makes sure that the padding and border are included 
   in the total width and height of the elements.*/
 * {
@@ -7,19 +13,15 @@
 /* Grid Layout */
 .body-grid-container {
     display: grid;
-    grid-template-columns: auto 300px 800px auto;
+    grid-template-columns: auto var(--MainBodyWidth) auto;
     grid-template-rows: 700px;
     /*background-color: #2196F3;*/
     padding: 10px;
     gap: 5px;
 }
 
-.header-grid-container {
-
-}
-
 .grid-item {
-    /*background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
     border: 2px solid rgba(0, 0, 0, 0.8);/**/
     padding: 20px;
     text-align: center;
@@ -32,7 +34,7 @@
 }
 
 .image-window {
-    grid-column: 3;
+    grid-column: 2;
     align-self: center;/**/
     justify-self: center;/**/
 }
@@ -64,8 +66,106 @@ body {
     background-color: #008080;
 }
 
+/*****************************************
+* Header CSS -- Begin
+*****************************************/
 header {
-    /* background-color: rgba(200, 200, 200, 0.8); */
+    background-color: #c3c3c3;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+.header-grid-container {
+    display: grid;
+    grid-template-columns: auto var(--MainBodyWidth) auto;
+}
+
+.header-grid-item {
+    background-color: #c3c3c3;
+    border: 2px solid black;
+}
+
+.logo-item {
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    grid-column: 2;
+}
+/*****************************************
+* Header CSS -- End
+*****************************************/
+
+
+/*
+
+/*This makes sure that the padding and border are included 
+  in the total width and height of the elements.
+  * {
+    box-sizing: border-box;
+}
+
+/* Grid Layout 
+.body-grid-container {
+    display: grid;
+    grid-template-columns: auto 300px 800px auto;
+    grid-template-rows: 700px;
+    /*background-color: #2196F3;
+    padding: 10px;
+    gap: 5px;
+}
+
+.header-grid-container {
+
+}
+
+.grid-item {
+    /*background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.8);/*
+    padding: 20px;
+    text-align: center;
+    /*align-self: center;
+    justify-self: center; /*
+}
+
+.item1 {
+    grid-column: 2;
+}
+
+.image-window {
+    grid-column: 3;
+    align-self: center;/*
+    justify-self: center;/*
+}
+
+.image-grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    /*background-color: #2196F3;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.image-grid-item {
+    background-color: black;
+    /*border: 2px solid rgba(0, 0, 0, 0.8);/*
+    padding: 2px;
+    text-align: center;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+body {
+    background-color: #008080;
+}
+
+header {
+    /* background-color: rgba(200, 200, 200, 0.8); 
     border: 2px solid black;
     padding: 10px;
 }
@@ -75,3 +175,4 @@ h1 {
     padding-left: 20px;
 }
 
+*/
