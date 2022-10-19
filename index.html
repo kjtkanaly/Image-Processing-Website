@@ -12,9 +12,12 @@
 <body onload="OnLoadEvent()">
     <div class="body-grid-container">
         <div class="ul Nav-ul">
-            <li class="nav-li"><a class="active-tab nav-li-a" href="#home">Home</a></li>
-            <li class="nav-li"><a class="nav-li-a" href="#docs">Documents</a></li>
-            <li class="nav-li"><a class="nav-li-a" href="#contacts">Contact</a></li>
+            <li id="Default-Nav" class="nav-li" onclick="SelectNav(this)" onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)">
+                <a class="nav-li-a" href="#home">Home</a></li>
+            <li class="nav-li" onclick="SelectNav(this)" onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)">
+                <a class="nav-li-a" href="#docs">Documents</a></li>
+            <li class="nav-li" onclick="SelectNav(this)" onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)">
+                <a class="nav-li-a" href="#contacts">Contact</a></li>
         </div>
 
         <div class="image-selction-window grid-item">        
