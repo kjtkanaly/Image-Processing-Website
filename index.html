@@ -6,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
 </head>
 
-<body>
+<body onload="OnLoadEvent()">
     <div class="body-grid-container">
         <div class="ul Nav-ul">
             <li class="nav-li"><a class="active-tab nav-li-a" href="#home">Home</a></li>
@@ -24,18 +25,30 @@
             </header>
 
             <div class="u1 Img-ul">
-                <li class="img-li"><a class="active-tab img-a" href="#home">Lena</a></li>
-                <li class="img-li"><a class="img-a" href="#docs">Peppers</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Suzi</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">CT-Scan</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Mammogram</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Lady</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Acton Town</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Johnny</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Camera</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Salesman</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Head</a></li>
-                <li class="img-li"><a class="img-a" href="#contacts">Tiffany</a></li>
+                <li id="Default-Image" class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Lena</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Peppers</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Suzi</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">CT-Scan</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Mammogram</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Lady</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Acton Town</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')"
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Johnny</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Camera</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Salesman</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Head</a></li>
+                <li class="img-li" onclick="SelectImage(this, 'black')" 
+                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Tiffany</a></li>
             </div>
         </div>
 

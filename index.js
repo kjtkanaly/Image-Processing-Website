@@ -1,17 +1,43 @@
-function pupUpHi()
-{
-    alert("Hello");
+const white = '#fdffff';
+const blue = '#010081';
+const teal = '#008080';
+const black = '#000000';
+const darkGray = '#818181';
+const lightGray = '#c3c3c3';
+const pink = '#ff0081';
+
+function SelectImage(element, color) {
+    let Options = document.getElementsByClassName("img-li");
+    
+    for (let i = 0; i < Options.length; i++)
+    {
+        // Debug
+        //console.log(Options[i].textContent + " " + Options[i].style.backgroundColor);
+
+        if (Options[i].style.backgroundColor == "rgb(253, 255, 255)")
+        { 
+            Options[i].style.backgroundColor = lightGray;
+            break;
+        }
+    }
+
+    element.style.backgroundColor = white;
 }
 
-function greet(name) {
-    console.log('hello ' + name);
+function HighlightImage(element) {
+    if (element.style.backgroundColor != "rgb(253, 255, 255)")
+    {
+        element.style.backgroundColor = darkGray;
+    }
 }
 
-////////////////////////////////////////////
-/*
-let timeDelay = 2000;
+function DeHighlightImage(element) {
+    if (element.style.backgroundColor != "rgb(253, 255, 255)")
+    {
+        element.style.backgroundColor = lightGray;
+    }
+}
 
-document.body.style.background = "red"
-
-setTimeout(() => document.body.style.background = "", timeDelay);
-*/
+function OnLoadEvent() {
+    document.getElementById("Default-Image").style.backgroundColor = white
+}
