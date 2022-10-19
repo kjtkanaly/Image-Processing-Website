@@ -1,37 +1,80 @@
-/* Global Variables */
+/*****************************************
+* Global Variables -- Begin
+*****************************************/
 :root {
-    --blue: #1e90ff;
-    --MainBodyWidth: 1100px;
+    --white: #fdffff;
+    --blue: #010081;
+    --teal: #008080;
+    --black: #000000;
+    --darkGray: #818181;
+    --lightGray: #c3c3c3;
+    --pink: #ff0081;
+    --ImageDisplayWidth: 800px;
+    --ImageSelectWidth: 300px;
+    --ImageSelectionHeight: 600px;
+    --ImageDisplayHeight: 800px;
+    --ImageProcessingHeight: 800px;
   }
+/*****************************************
+* Global Variables -- End
+*****************************************/
+
+/*****************************************
+* General CSS -- Begin
+*******************************#000000**********/
+body {
+    background-color: var(--teal);
+    font-family:Arial, Helvetica, sans-serif;
+}
 
 /*This makes sure that the padding and border are included 
   in the total width and height of the elements.*/
 * {
     box-sizing: border-box;
 }
+/*****************************************
+* General CSS -- End
+*****************************************/
 
+/*****************************************
+* Body CSS -- Begin
+*****************************************/
 /* Grid Layout */
 .body-grid-container {
     display: grid;
-    grid-template-columns: auto var(--MainBodyWidth) auto;
-    grid-template-rows: 700px;
-    /*background-color: #2196F3;*/
-    padding: 10px;
-    gap: 5px;
+    grid-template-columns: auto var(--ImageSelectWidth) var(--ImageDisplayWidth) auto;
 }
 
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 2px solid rgba(0, 0, 0, 0.8);/**/
-    padding: 20px;
-    text-align: center;
-    /*align-self: center;
-    justify-self: center; /**/
-}
-
-.item1 {
+.image-selction-window {
     grid-column: 2;
+    background-color: var(--lightGray);
+    border: 2px solid var(--blue);
+    height: var(--ImageSelectionHeight);
+    margin-top: 110px;
+    margin-right: 5px;
 }
+
+.image-display-window {
+    grid-column: 3;
+    background-color: var(--lightGray);
+    border: 2px solid var(--blue);
+    height: var(--ImageDisplayHeight);
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.image-processing-window {
+    grid-column: 2 / 4;
+    background-color: var(--lightGray);
+    border: 2px solid var(--blue);
+    height: var(--ImageProcessingHeight);
+    margin-top: 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+/*****************************************
+* Body CSS -- End
+*****************************************/
 
 /*****************************************
 * Image CSS -- Begin
@@ -47,12 +90,12 @@
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
     /*background-color: #2196F3;*/
-    border: 2px solid black;
+    border: 2px solid var(--black);
     border-radius: 5px;
 }
 
 .image-grid-item {
-    background-color: black;
+    background-color: var(--black);
     /*border: 2px solid rgba(0, 0, 0, 0.8);/**/
     padding: 2px;
     text-align: center;
@@ -68,27 +111,47 @@
 * Image CSS -- End
 *****************************************/
 
-body {
-    background-color: #008080;
+/*****************************************
+* Nav Bar CSS -- Begin
+*****************************************/
+li {
+    float: left;
+    border-right: 1px solid var(--black);
 }
 
-/*****************************************
-* Header CSS -- Begin
-*****************************************/
-header {
-    background-color: #c3c3c3;
-    border: 2px solid black;
-    padding: 10px;
+li a {
+    display: block;
+    color: var(--black);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: var(--darkGray);
+}
+
+.Nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--lightGray);
+    grid-column: 2 / 4;
+}
+
+.active-tab {
+    background-color: var(--white);
 }
 
 .header-grid-container {
     display: grid;
-    grid-template-columns: auto var(--MainBodyWidth) auto;
+    grid-template-columns: auto var(--ImageSelectWidth) var(--ImageDisplayWidth) auto;
 }
 
 .header-grid-item {
-    background-color: #c3c3c3;
-    border: 2px solid black;
+    background-color: var(--lightGray);
+    border: 2px solid var(--black);
 }
 
 .logo-item {
