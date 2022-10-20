@@ -9,11 +9,14 @@
     --darkGray: #818181;
     --lightGray: #c3c3c3;
     --pink: #ff0081;
+    
     --ImageDisplayWidth: 800px;
     --ImageSelectWidth: 300px;
     --ImageSelectionHeight: 537px;
     --ImageDisplayHeight: 800px;
     --ImageProcessingHeight: 800px;
+
+    --ImageWidth: 600px;
   }
 /*****************************************
 * Global Variables -- End
@@ -32,11 +35,6 @@ body {
 * {
     box-sizing: border-box;
 }
-
-/*
-li a:hover {
-    background-color: var(--darkGray);
-}/**/
 /*****************************************
 * General CSS -- End
 *****************************************/
@@ -79,41 +77,6 @@ li a:hover {
 }
 /*****************************************
 * Body CSS -- End
-*****************************************/
-
-/*****************************************
-* Image CSS -- Begin
-*****************************************/
-.image-window {
-    grid-column: 2;
-    align-self: center;/**/
-    justify-self: center;/**/
-}
-
-.image-grid-container {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    /*background-color: #2196F3;*/
-    border: 2px solid var(--black);
-    border-radius: 5px;
-}
-
-.image-grid-item {
-    background-color: var(--black);
-    /*border: 2px solid rgba(0, 0, 0, 0.8);/**/
-    padding: 2px;
-    text-align: center;
-}
-
-.image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-/*****************************************
-* Image CSS -- End
 *****************************************/
 
 /*****************************************
@@ -207,3 +170,44 @@ li a:hover {
 * Header CSS -- End
 *****************************************/
 
+/*****************************************
+* Image CSS -- Begin
+*****************************************/
+.image-header {
+    grid-column: 2;
+    text-align: center;
+    background-color: var(--darkGray);
+    margin: 0;
+    padding: 10px;
+    font-size: 35px;
+}
+
+.image-display {
+    grid-column: 2;
+    text-align: center;
+    margin: 0;
+    padding-top: 85px;
+    padding-bottom: 86px;
+}
+
+.image-features {
+    border: 2px solid var(--black);
+    border-radius: 10px;
+}
+
+.image-control-panel {
+    grid-column: 2;
+    text-align: center;
+    margin: 0;
+    background-color: var(--darkGray);
+}
+
+.image-control-text {
+    font-size: 24px;
+    padding: 8px;
+}
+
+.image-grid-container {
+    display: grid;
+    grid-template-columns: auto var(--ImageWidth) auto;
+}
