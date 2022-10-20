@@ -87,6 +87,7 @@ body {
     text-align: center;
     padding: 10px;
     margin: 0;
+    font-size: 24px;
 }
 
 .Img-ul {
@@ -177,6 +178,7 @@ body {
     grid-column: 2;
     text-align: center;
     background-color: var(--darkGray);
+    border-bottom: 1px solid var(--black);
     margin: 0;
     padding: 10px;
     font-size: 35px;
@@ -200,6 +202,7 @@ body {
     text-align: center;
     margin: 0;
     background-color: var(--darkGray);
+    border-top: 1px solid var(--black);
 }
 
 .image-control-text {
@@ -210,4 +213,16 @@ body {
 .image-grid-container {
     display: grid;
     grid-template-columns: auto var(--ImageWidth) auto;
+}
+/*****************************************
+* Image CSS -- End
+*****************************************/
+
+/*****************************************
+* DIP CSS -- Begin
+*****************************************/
+.dip-tabs {
+    height: 8%;
+    background-color: var(--darkGray);
+    border: 1px solid var(--pink);
 }
