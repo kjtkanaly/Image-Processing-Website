@@ -7,6 +7,7 @@ const lightGray = '#c3c3c3';
 const pink = '#ff0081';
 
 var MainImage;
+var ImageLabel
 const newImgs = [];
 const newImgsNames = [
     "lena.jpg",
@@ -21,6 +22,20 @@ const newImgsNames = [
     "salesman.jpg",
     "head.jpg",
     "tiffany.jpg"
+];
+const newImgsLabels = [
+    "Lena",
+    "Peppers",
+    "Suzi",
+    "CT-Scan",
+    "Boat",
+    "Lady",
+    "Actontown",
+    "Johnny",
+    "Cameraman",
+    "Salesman",
+    "Head",
+    "Tiffany"
 ];
 
 function OnLoadEvent() {
@@ -37,6 +52,10 @@ function OnLoadEvent() {
         newImgs[i] = new Image();
         newImgs[i].src = ("Images/" + newImgsNames[i]);
     }
+
+    // Grabbing the image label
+    ImageLabel = document.getElementById("Image1Label");
+    ImageLabel.textContent = newImgsLabels[0];
 
 }
 
@@ -66,6 +85,8 @@ function SelectImage(element) {
         {
             MainImage.src = newImgs[i].src;    
             MainImage.width = "516";
+
+            ImageLabel.textContent = newImgsLabels[i];
         }
     }
 }

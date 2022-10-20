@@ -53,7 +53,7 @@ body {
     background-color: var(--lightGray);
     border: 2px solid var(--blue);
     height: var(--ImageSelectionHeight);
-    margin-top: 135px;
+    margin-top: 140px;
     margin-right: 5px;
 }
 
@@ -62,7 +62,7 @@ body {
     background-color: var(--lightGray);
     border: 2px solid var(--blue);
     height: var(--ImageDisplayHeight);
-    margin-top: 10px;
+    margin-top: 15px;
     margin-right: 5px;
 }
 
