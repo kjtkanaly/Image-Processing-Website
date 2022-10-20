@@ -6,6 +6,20 @@ const darkGray = '#818181';
 const lightGray = '#c3c3c3';
 const pink = '#ff0081';
 
+var MainImage;
+var newImg = new Image;
+
+function OnLoadEvent() {
+    document.getElementById("Default-Image").style.backgroundColor = white;
+    document.getElementById("Default-Nav").style.backgroundColor = white;
+
+    // Grabbing the Main image element
+    MainImage = document.getElementById('Image1');
+
+    // Preloading all image options
+    newImg.src = ("Images/" + "actontown" + ".jpg");
+}
+
 function SelectImage(element) {
     let Options = document.getElementsByClassName("img-li");
     
@@ -22,6 +36,10 @@ function SelectImage(element) {
     }
 
     element.style.backgroundColor = white;
+
+    MainImage.src = newImg.src;    
+    MainImage.width = "516";
+    
 }
 
 function SelectNav(element) {
@@ -54,9 +72,4 @@ function DeHighlightImage(element) {
     {
         element.style.backgroundColor = lightGray;
     }
-}
-
-function OnLoadEvent() {
-    document.getElementById("Default-Image").style.backgroundColor = white;
-    document.getElementById("Default-Nav").style.backgroundColor = white;
 }
