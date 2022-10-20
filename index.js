@@ -7,7 +7,21 @@ const lightGray = '#c3c3c3';
 const pink = '#ff0081';
 
 var MainImage;
-var newImg = new Image;
+const newImgs = [];
+const newImgsNames = [
+    "lena.jpg",
+    "peppers.jpg",
+    "suzi.jpg",
+    "ct_scan.jpg",
+    "boat.jpg",
+    "lady.jpg",
+    "actontown.jpg",
+    "johnny.jpg",
+    "cameraman.jpg",
+    "salesman.jpg",
+    "head.jpg",
+    "tiffany.jpg"
+];
 
 function OnLoadEvent() {
     document.getElementById("Default-Image").style.backgroundColor = white;
@@ -15,14 +29,21 @@ function OnLoadEvent() {
 
     // Grabbing the Main image element
     MainImage = document.getElementById('Image1');
+    MainImage.width = "516";
 
     // Preloading all image options
-    newImg.src = ("Images/" + "actontown" + ".jpg");
+    for (let i = 0; i < 12; i++) 
+    {
+        newImgs[i] = new Image();
+        newImgs[i].src = ("Images/" + newImgsNames[i]);
+    }
+
 }
 
 function SelectImage(element) {
     let Options = document.getElementsByClassName("img-li");
     
+    // De-Highlighing the previous image
     for (let i = 0; i < Options.length; i++)
     {
         // Debug
@@ -35,11 +56,18 @@ function SelectImage(element) {
         }
     }
 
+    // Highlighting the current image
     element.style.backgroundColor = white;
 
-    MainImage.src = newImg.src;    
-    MainImage.width = "516";
-    
+    // Displaying the current image
+    for (let i = 0; i < Options.length; i++)
+    {
+        if (Options[i] == element)
+        {
+            MainImage.src = newImgs[i].src;    
+            MainImage.width = "516";
+        }
+    }
 }
 
 function SelectNav(element) {
