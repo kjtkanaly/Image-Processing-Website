@@ -122,3 +122,12 @@ function DeHighlightImage(element) {
         element.style.backgroundColor = lightGray;
     }
 }
+
+function dipSelect(evt) {
+    tabs = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].className = tabs[i].className.replace(" active", "");
+    }
+
+    evt.currentTarget.className += " active";
+}

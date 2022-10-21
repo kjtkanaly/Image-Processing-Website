@@ -15,6 +15,7 @@
     --ImageSelectionHeight: 537px;
     --ImageDisplayHeight: 800px;
     --ImageProcessingHeight: 800px;
+    --FooterHeight: 100px;
 
     --ImageWidth: 600px;
   }
@@ -53,7 +54,7 @@ body {
     background-color: var(--lightGray);
     border: 2px solid var(--blue);
     height: var(--ImageSelectionHeight);
-    margin-top: 140px;
+    margin-top: 165px;
     margin-right: 5px;
 }
 
@@ -62,7 +63,7 @@ body {
     background-color: var(--lightGray);
     border: 2px solid var(--blue);
     height: var(--ImageDisplayHeight);
-    margin-top: 15px;
+    margin-top: 40px;
     margin-right: 5px;
 }
 
@@ -71,9 +72,18 @@ body {
     background-color: var(--lightGray);
     border: 2px solid var(--blue);
     height: var(--ImageProcessingHeight);
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.footer-window {
+    grid-column: 2 / 4;
+    background-color: var(--lightGray);
+    border: 2px solid var(--blue);
+    border-bottom: none;
+    height: var(--FooterHeight);
+    margin-top: 40px;
 }
 /*****************************************
 * Body CSS -- End
@@ -207,7 +217,7 @@ body {
 
 .image-control-text {
     font-size: 24px;
-    padding: 8px;
+    padding: 7px;
 }
 
 .image-grid-container {
@@ -221,8 +231,31 @@ body {
 /*****************************************
 * DIP CSS -- Begin
 *****************************************/
-.dip-tabs {
-    height: 8%;
+.dip-tab {
+    overflow: hidden;
+    border-bottom: 2px solid var(--black);
     background-color: var(--darkGray);
-    border: 1px solid var(--pink);
 }
+
+.dip-tab button {
+    background-color: inherit;
+    border-right: 3px solid var(--black);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 20px 18px;
+    transition: 0.3s;
+    font-size: 20px;
+    width: 50%;
+}
+
+
+.dip-tab button:hover {
+    background-color: var(--lightGray);
+}
+
+.dip-tab button.active {
+    background-color: var(--white);
+}
+
