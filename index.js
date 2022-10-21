@@ -39,7 +39,6 @@ const newImgsLabels = [
 ];
 
 function OnLoadEvent() {
-    document.getElementById("Default-Image").style.backgroundColor = white;
     document.getElementById("Default-Nav").style.backgroundColor = white;
 
     // Grabbing the Main image element
@@ -109,18 +108,13 @@ function SelectNav(element) {
     element.style.backgroundColor = white;
 }
 
-function HighlightImage(element) {
-    if (element.style.backgroundColor != "rgb(253, 255, 255)")
-    {
-        element.style.backgroundColor = darkGray;
+function imageSelect(evt) {
+    tabs = document.getElementsByClassName("imageLinks");
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].className = tabs[i].className.replace(" active", "");
     }
-}
 
-function DeHighlightImage(element) {
-    if (element.style.backgroundColor != "rgb(253, 255, 255)")
-    {
-        element.style.backgroundColor = lightGray;
-    }
+    evt.currentTarget.className += " active";
 }
 
 function dipSelect(evt) {

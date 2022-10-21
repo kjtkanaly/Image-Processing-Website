@@ -20,38 +20,22 @@
                 <a class="nav-li-a" href="#contacts">Contact</a></li>
         </div>
 
-        <div class="image-selction-window grid-item">        
+        <div class="image-selection-window">        
             <header>
-                <h1 class="image-selection-header">
-                    Image Selection
-                </h1>
+                Image Selection
             </header>
 
-            <div class="u1 Img-ul">
-                <li id="Default-Image" class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Lena</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Peppers</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Suzi</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">CT-Scan</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Boat</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Lady</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Acton Town</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')"
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Johnny</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Camera Man</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Salesman</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Head</a></li>
-                <li class="img-li" onclick="SelectImage(this, 'black')" 
-                    onmouseover="HighlightImage(this)" onmouseleave="DeHighlightImage(this)"><a class="img-a">Tiffany</a></li>
+            <div class="selection-tab">
+                <button class="imageLinks active" onclick="imageSelect(event)">Lena</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Peppers</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Suzi</button>
+                <button class="imageLinks" onclick="imageSelect(event)">CT-Scan</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Boat</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Lady</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Johnny</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Camera Man</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Head</button>
+                <button class="imageLinks" onclick="imageSelect(event)">Tiffany</button>
             </div>
         </div>
 
