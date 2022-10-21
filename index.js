@@ -52,6 +52,12 @@ function OnLoadEvent() {
     ImageLabel = document.getElementById("Image1Label");
     ImageLabel.textContent = newImgsLabels[0];
 
+    // Setting the initial content to visible
+    let content = document.getElementsByClassName("dip-tab-content dip-basics");
+
+    for (let i = 0; i < content.length; i++) {
+        content[i].style.display = "block";
+    }
 }
 
 function SelectImage(element) {
@@ -133,4 +139,24 @@ function dipSelect(evt) {
     }
 
     evt.currentTarget.className += " active";
+
+    // Displaying the correct conent
+    let content = document.getElementsByClassName("dip-tab-content");
+
+    let classFlag = "";
+    if (evt.currentTarget.id == "Basics-Tab") {
+        classFlag = "dip-tab-content dip-basics";
+    } 
+    else {
+        classFlag = "dip-tab-content dip-morph";
+    }
+    
+    for (let i = 0; i < content.length; i++) {
+        if (content[i].className == classFlag) {
+            content[i].style.display = "block";
+        }
+        else {
+            content[i].style.display = "none";
+        }
+    }
 }

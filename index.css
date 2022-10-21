@@ -256,3 +256,7 @@ body {
     background-color: var(--white);
 }
 
+.dip-tab-content {
+    display: none;
+    
+}

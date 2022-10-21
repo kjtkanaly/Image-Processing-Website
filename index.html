@@ -55,8 +55,15 @@
 
         <div class="image-processing-window">
             <div class="dip-tab">
-                <button class="tablinks active" onclick="dipSelect(event)">Basics</button>
-                <button class="tablinks" onclick="dipSelect(event)">Morphological</button>
+                <button id="Basics-Tab" class="tablinks active" onclick="dipSelect(event)">Basics</button>
+                <button id="Morph-Tab" class="tablinks" onclick="dipSelect(event)">Morphological</button>
+            </div>
+
+            <div id="invert" class="dip-tab-content dip-basics">
+                <div>Peep1</div>
+            </div>
+            <div id="invert" class="dip-tab-content dip-morph">
+                <div>Peep2</div>
             </div>
         </div>
 
