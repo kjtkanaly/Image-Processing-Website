@@ -16,10 +16,8 @@ const newImgsNames = [
     "ct_scan.jpg",
     "boat.jpg",
     "lady.jpg",
-    "actontown.jpg",
-    "johnny.jpg",
-    "cameraman.jpg",
     "salesman.jpg",
+    "cameraman.jpg",
     "head.jpg",
     "tiffany.jpg"
 ];
@@ -30,10 +28,8 @@ const newImgsLabels = [
     "CT-Scan",
     "Boat",
     "Lady",
-    "Actontown",
-    "Johnny",
-    "Cameraman",
     "Salesman",
+    "Camera Man",
     "Head",
     "Tiffany"
 ];
@@ -46,7 +42,7 @@ function OnLoadEvent() {
     MainImage.width = "516";
 
     // Preloading all image options
-    for (let i = 0; i < 12; i++) 
+    for (let i = 0; i < newImgsNames.length; i++) 
     {
         newImgs[i] = new Image();
         newImgs[i].src = ("Images/" + newImgsNames[i]);
@@ -109,16 +105,29 @@ function SelectNav(element) {
 }
 
 function imageSelect(evt) {
-    tabs = document.getElementsByClassName("imageLinks");
-    for (let i = 0; i < tabs.length; i++) {
-        tabs[i].className = tabs[i].className.replace(" active", "");
+    let options = document.getElementsByClassName("imageLinks");
+
+    for (let i = 0; i < options.length; i++) {
+        options[i].className = options[i].className.replace(" active", "");
+    }
+
+    // Displaying the current image
+    for (let i = 0; i < options.length; i++)
+    {
+        if (options[i] == evt.currentTarget)
+        {
+            MainImage.src = newImgs[i].src;    
+            MainImage.width = "516";
+
+            ImageLabel.textContent = newImgsLabels[i];
+        }
     }
 
     evt.currentTarget.className += " active";
 }
 
 function dipSelect(evt) {
-    tabs = document.getElementsByClassName("tablinks");
+    let tabs = document.getElementsByClassName("tablinks");
     for (let i = 0; i < tabs.length; i++) {
         tabs[i].className = tabs[i].className.replace(" active", "");
     }
