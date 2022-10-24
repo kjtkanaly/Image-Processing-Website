@@ -53,7 +53,7 @@ function OnLoadEvent() {
     ImageLabel.textContent = newImgsLabels[0];
 
     // Setting the initial content to visible
-    let content = document.getElementsByClassName("dip-tab-content dip-basics");
+    let content = document.getElementsByClassName("dip-content dip-basic");
 
     for (let i = 0; i < content.length; i++) {
         content[i].style.display = "block";
@@ -141,14 +141,14 @@ function dipSelect(evt) {
     evt.currentTarget.className += " active";
 
     // Displaying the correct conent
-    let content = document.getElementsByClassName("dip-tab-content");
+    let content = document.getElementsByClassName("dip-content ");
 
     let classFlag = "";
     if (evt.currentTarget.id == "Basics-Tab") {
-        classFlag = "dip-tab-content dip-basics";
+        classFlag = "dip-content dip-basic";
     } 
     else {
-        classFlag = "dip-tab-content dip-morph";
+        classFlag = "dip-content dip-morph";
     }
     
     for (let i = 0; i < content.length; i++) {

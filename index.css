@@ -236,15 +236,19 @@ body {
 
 .dip-tab button {
     background-color: inherit;
-    border-right: 3px solid var(--black);
-    float: left;
     border: none;
+    border-right: 2px solid var(--black);
+    float: left;
     outline: none;
     cursor: pointer;
     padding: 20px 18px;
     transition: 0.3s;
     font-size: 20px;
     width: 50%;
+}
+
+.dip-tab button:last-child {
+    border: none;
 }
 
 .dip-tab button:hover {
@@ -255,32 +259,86 @@ body {
     background-color: var(--white);
 }
 
-.dip-tab-content {
+.dip-content {
     display: none;
+}
+
+.dip-content::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.dip-item {
+    display: inline-table;
+    float: left;
+    border: 1px solid red;
     text-align: center;
-    border: 2px solid var(--pink);
+    font-size: 24px;
 }
 
-.dip-tab-content .label {
-    width: 50%;
+.dip-boundary {
+    width: 20%;
 }
 
-/* The switch - the box around the slider */
-.dip-tab-content .switch {
-    position: relative;
+.dip-checkbox {
+    width: 10%;
+}
+
+.dip-label {
+    width: 20%;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    
+}
+
+.dip-ui {
+    width: 30%;
+}
+/*****************************************
+* DIP CSS -- End
+*****************************************/
+
+/*****************************************
+* Slider CSS -- Begin
+*****************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.image-processing-window label {
+}
+
+.image-processing-window .switch-cont {
+    width: 49%;
+    border: 2px solid var(--blue);
     display: inline-block;
+}
+
+.image-processing-window .switch {
+    display: inline-block;
+    position: relative;
     width: 60px;
     height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-/* The slider */
 .slider {
     position: absolute;
     cursor: pointer;
@@ -318,3 +376,4 @@ input:checked + .slider:before {
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
+*/
