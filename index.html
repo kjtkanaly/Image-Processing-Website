@@ -60,17 +60,35 @@
             </div>
 
             <div class="dip-content dip-basic"> 
+                <!-- Invert -->
                 <div class="dip-item dip-boundary">
                     _
                 </div>
                 <div class="dip-item dip-checkbox">
-                    check
+                    <input type="checkbox" id="box1" value="test">
                 </div>
                 <div class="dip-item dip-label">
-                    option
+                    Invert
                 </div>
                 <div class="dip-item dip-ui">
                     UI
+                </div>
+                <div class="dip-item dip-boundary">
+                    _
+                </div>
+                <!-- Threshold -->
+                <div class="dip-item dip-boundary">
+                    _
+                </div>
+                <div class="dip-item dip-checkbox">
+                    <input type="checkbox" id="box1" value="test">
+                </div>
+                <div class="dip-item dip-label">
+                    Threshold
+                </div>
+                <div class="dip-item dip-ui">
+                    <input type="range" min="0" max="255" value="127" class="slider" id="T-Range" oninput="this.nextElementSibling.value = this.value">
+                    <output>127</output>
                 </div>
                 <div class="dip-item dip-boundary">
                     _

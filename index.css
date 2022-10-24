@@ -275,6 +275,8 @@ body {
     border: 1px solid red;
     text-align: center;
     font-size: 24px;
+    height: 100px;
+    line-height: 100px;
 }
 
 .dip-boundary {
@@ -287,9 +289,6 @@ body {
 
 .dip-label {
     width: 20%;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    
 }
 
 .dip-ui {
