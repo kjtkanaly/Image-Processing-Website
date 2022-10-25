@@ -160,3 +160,11 @@ function dipSelect(evt) {
         }
     }
 }
+
+function invertImage(evt) {
+    console.log(evt.currentTarget.checked);
+}
+
+function thresholdImage(evt) {
+    console.log(evt.currentTarget.checked);
+}
