@@ -9,7 +9,9 @@ const pink = '#ff0081';
 var MainImage;
 var MainCanvas;
 var MainCanvasCtx;
-var ImageLabel
+var OriginalImageData;
+var ImageLabel;
+
 const newImgs = [];
 const newImgsNames = [
     "lena.jpg",
@@ -36,16 +38,21 @@ const newImgsLabels = [
     "Tiffany"
 ];
 
+// Page Elements
+var invertToggle;
+var thresholdToggle;
+var thresholdSlider;
+
 function OnLoadEvent() {
     document.getElementById("Default-Nav").style.backgroundColor = white;
 
-    // Grabbing the Main image element
+    // Grabbing the Main image elements
     MainImage = document.getElementById('Image1');
-
     MainCanvas = document.getElementById('Canvas1');
+    MainCanvasCtx = MainCanvas.getContext("2d", {willReadFrequently: true});
 
-    MainCanvasCtx = MainCanvas.getContext("2d");
-    MainCanvasCtx.drawImage(MainImage, 0, 0, MainImage.width*2, MainImage.height*2);
+    // Draw the loaded image onto the canvas
+    UpdateImageDisplay();
 
     // Preloading all image options
     for (let i = 0; i < newImgsNames.length; i++) 
@@ -64,6 +71,12 @@ function OnLoadEvent() {
     for (let i = 0; i < content.length; i++) {
         content[i].style.display = "block";
     }
+
+    // Grabbing the processes toggles for later
+    thresholdToggle = document.getElementById("T-Toggle");
+
+    // Grabbing the Threshold slider for later
+    thresholdSlider = document.getElementById("T-Range");
 }
 
 function SelectNav(element) {
@@ -98,17 +111,47 @@ function imageSelect(evt) {
         {
             MainImage.src = newImgs[i].src;    
             
-            var scaleWidth = MainCanvas.width / MainImage.width;
-            var scaleHeight = MainCanvas.height / MainImage.height;
+            // Draw the loaded image onto the canvas
+            UpdateImageDisplay();
             
-            MainCanvasCtx.clearRect(0, 0, MainCanvas.width, MainCanvas.height);
-            MainCanvasCtx.drawImage(MainImage, 0, 0, MainImage.width*scaleWidth, MainImage.height*scaleHeight);
-
             ImageLabel.textContent = newImgsLabels[i];
         }
     }
 
     evt.currentTarget.className += " active";
+
+    // Checking which Processes are active
+    checks = document.getElementsByClassName("dip-checkbox");
+
+    for (let i = 0; i < checks.length; i++) 
+    {
+        if (checks[i].children[0].checked == true)
+        {
+            checks[i].children[0].onchange();
+        }
+    }
+}
+
+function UpdateImageDisplay() {
+
+    // Logging the scale of the new image compared to the canvas
+    var scaleWidth = MainCanvas.width / MainImage.width;
+    var scaleHeight = MainCanvas.height / MainImage.height;
+
+    // Wipping and then drawing the new image
+    MainCanvasCtx.clearRect(0, 0, MainCanvas.width, MainCanvas.height);
+    MainCanvasCtx.drawImage(MainImage, 0, 0, MainImage.width*scaleWidth, MainImage.height*scaleHeight);
+
+    // Grabbing the new canvas data
+    var imageData = MainCanvasCtx.getImageData(0, 0, MainCanvas.width, MainCanvas.height);
+
+    // Store the new image's OG pixel values
+    OriginalImageData = [];
+
+    for (let i = 0; i < imageData.data.length; i+=4) {
+        OriginalImageData[i] = imageData.data[i];
+    }
+
 }
 
 function dipSelect(evt) {
@@ -140,9 +183,7 @@ function dipSelect(evt) {
     }
 }
 
-function invertImage(evt) {
-    console.log(evt.currentTarget.checked);
-
+function invertImage() {
     var imageData = MainCanvasCtx.getImageData(0, 0, MainCanvas.width, MainCanvas.height);
 
     for (let i = 0; i < imageData.data.length; i+=4) {
@@ -150,11 +191,49 @@ function invertImage(evt) {
         imageData.data[i + 1] = 255 - imageData.data[i + 1];
         imageData.data[i + 2] = 255 - imageData.data[i + 2];
         imageData.data[i + 3] = 255;
-    }/**/
+
+        OriginalImageData[i] = 255 - OriginalImageData[i];
+    }
 
     MainCanvasCtx.putImageData(imageData, 0, 0);
 }
 
-function thresholdImage(evt) {
-    console.log(evt.currentTarget.checked);
+function thresholdImage() {
+
+    var imageData = MainCanvasCtx.getImageData(0, 0, MainCanvas.width, MainCanvas.height);
+
+    if (thresholdToggle.checked == true) 
+    {
+        var thresholdValue = thresholdSlider.value;
+
+        for (let i = 0; i < imageData.data.length; i+=4) {
+            if (OriginalImageData[i] > thresholdValue)
+            {
+                imageData.data[i] = 255;
+                imageData.data[i + 1] = 255;
+                imageData.data[i + 2] = 255;
+            }
+            else
+            {
+                imageData.data[i] = 0;
+                imageData.data[i + 1] = 0;
+                imageData.data[i + 2] = 0;
+            }
+
+            imageData.data[i + 3] = 255;
+            
+        }
+    }
+
+    else
+    {
+        for (let i = 0; i < imageData.data.length; i+=4) {
+            imageData.data[i] = OriginalImageData[i];
+            imageData.data[i + 1] = OriginalImageData[i];
+            imageData.data[i + 2] = OriginalImageData[i];
+            imageData.data[i + 3] = 255;
+        }
+    }
+
+    MainCanvasCtx.putImageData(imageData, 0, 0);
 }
