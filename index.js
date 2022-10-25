@@ -7,6 +7,8 @@ const lightGray = '#c3c3c3';
 const pink = '#ff0081';
 
 var MainImage;
+var MainCanvas;
+var MainCanvasCtx;
 var ImageLabel
 const newImgs = [];
 const newImgsNames = [
@@ -39,7 +41,11 @@ function OnLoadEvent() {
 
     // Grabbing the Main image element
     MainImage = document.getElementById('Image1');
-    MainImage.width = "516";
+
+    MainCanvas = document.getElementById('Canvas1');
+
+    MainCanvasCtx = MainCanvas.getContext("2d");
+    MainCanvasCtx.drawImage(MainImage, 0, 0, MainImage.width*2, MainImage.height*2);
 
     // Preloading all image options
     for (let i = 0; i < newImgsNames.length; i++) 
@@ -57,38 +63,6 @@ function OnLoadEvent() {
 
     for (let i = 0; i < content.length; i++) {
         content[i].style.display = "block";
-    }
-}
-
-function SelectImage(element) {
-    let Options = document.getElementsByClassName("img-li");
-    
-    // De-Highlighing the previous image
-    for (let i = 0; i < Options.length; i++)
-    {
-        // Debug
-        //console.log(Options[i].textContent + " " + Options[i].style.backgroundColor);
-
-        if (Options[i].style.backgroundColor == "rgb(253, 255, 255)")
-        { 
-            Options[i].style.backgroundColor = lightGray;
-            break;
-        }
-    }
-
-    // Highlighting the current image
-    element.style.backgroundColor = white;
-
-    // Displaying the current image
-    for (let i = 0; i < Options.length; i++)
-    {
-        if (Options[i] == element)
-        {
-            MainImage.src = newImgs[i].src;    
-            MainImage.width = "516";
-
-            ImageLabel.textContent = newImgsLabels[i];
-        }
     }
 }
 
@@ -123,7 +97,12 @@ function imageSelect(evt) {
         if (options[i] == evt.currentTarget)
         {
             MainImage.src = newImgs[i].src;    
-            MainImage.width = "516";
+            
+            var scaleWidth = MainCanvas.width / MainImage.width;
+            var scaleHeight = MainCanvas.height / MainImage.height;
+            
+            MainCanvasCtx.clearRect(0, 0, MainCanvas.width, MainCanvas.height);
+            MainCanvasCtx.drawImage(MainImage, 0, 0, MainImage.width*scaleWidth, MainImage.height*scaleHeight);
 
             ImageLabel.textContent = newImgsLabels[i];
         }
@@ -155,7 +134,7 @@ function dipSelect(evt) {
         if (content[i].className == classFlag) {
             content[i].style.display = "block";
         }
-        else {
+        else { 
             content[i].style.display = "none";
         }
     }
@@ -163,6 +142,17 @@ function dipSelect(evt) {
 
 function invertImage(evt) {
     console.log(evt.currentTarget.checked);
+
+    var imageData = MainCanvasCtx.getImageData(0, 0, MainCanvas.width, MainCanvas.height);
+
+    for (let i = 0; i < imageData.data.length; i+=4) {
+        imageData.data[i] = 255 - imageData.data[i];
+        imageData.data[i + 1] = 255 - imageData.data[i + 1];
+        imageData.data[i + 2] = 255 - imageData.data[i + 2];
+        imageData.data[i + 3] = 255;
+    }/**/
+
+    MainCanvasCtx.putImageData(imageData, 0, 0);
 }
 
 function thresholdImage(evt) {
