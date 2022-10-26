@@ -78,6 +78,9 @@ function OnLoadEvent() {
 
     // Grabbing the Threshold slider for later
     thresholdSlider = document.getElementById("T-Range");
+
+    // Making our morphological grid
+    makeButtons();
 }
 
 function SelectNav(element) {
@@ -249,5 +252,23 @@ function SetActive(evt) {
     else
     {
         btn.className = "";
+    }
+}
+
+var numberOfRows = 5;
+var numberOfCols = 5;
+
+function makeButtons() {
+    let btnHolder = document.getElementById("Button_Holder");
+
+    for (var i = 0; i < numberOfRows; i++) {
+        for (var j = 0; j < numberOfCols; j++) {
+            let btn = document.createElement("button");
+            btn.setAttribute("onclick","SetActive(event)");
+            btnHolder.append(btn);
+        }
+        
+        let brk = document.createElement("br");
+        btnHolder.append(brk);
     }
 }
