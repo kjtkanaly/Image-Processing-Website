@@ -238,3 +238,16 @@ function thresholdImage() {
 
     MainCanvasCtx.putImageData(imageData, 0, 0);
 }
+
+function SetActive(evt) {
+    btn = evt.currentTarget;
+
+    if (btn.className == "")
+    {
+        btn.className += "active";
+    }
+    else
+    {
+        btn.className = "";
+    }
+}

@@ -313,7 +313,8 @@ body {
 
 .dip-morph-filter {
     width: 36%;
-    height: 300px;
+    height: 350px;
+    padding-top: 20px;
 }
 
 .dip-morph-toggle {
@@ -330,6 +331,30 @@ body {
 .larger-Checkbox {
     width: 20px;
     height: 20px;
+}
+
+.dip-morph-filter button {
+    background-color: inherit;
+    float: center;
+    border: none;
+    border: 2px solid var(--black);
+    border-radius: 4px;
+    outline: none;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+}
+
+.dip-morph-filter button:hover {
+    background-color: var(--darkGray);
+}
+
+.dip-morph-filter button.active {
+    background-color: var(--white);
 }
 /*****************************************
 * DIP CSS -- End
