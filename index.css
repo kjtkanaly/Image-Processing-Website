@@ -275,8 +275,8 @@ body {
     float: left;    
     text-align: center;
     font-size: 24px;
-    height: 100px;
-    line-height: 100px;
+    height: 50px;
+    line-height: 50px;
     /*border: 1px solid red;*/
     border-bottom: 1px solid var(--black);
 }
@@ -286,8 +286,8 @@ body {
     float: left;    
     text-align: center;
     font-size: 24px;
-    height: 100px;
-    line-height: 100px;
+    height: 50px;
+    line-height: 50px;
     border: 1px solid red;
 }
 
@@ -313,17 +313,18 @@ body {
 
 .dip-morph-filter {
     width: 36%;
-    height: 200px;
-}
-
-.dip-morph-template {
-    width: 18%;
-    height: 100px;
+    height: 300px;
 }
 
 .dip-morph-toggle {
-    width: 18%;
-    height: 100px;
+    width: 20%;
+    height: 70px;
+    line-height: 65px;
+}
+
+.dip-morph-selection {
+    width: 40%;
+    height: 300px;
 }
 
 .larger-Checkbox {
