@@ -65,42 +65,64 @@
 
             <div class="dip-content dip-basic"> 
                 <!-- Invert -->
-                <div class="dip-item dip-boundary">
+                <div class="dip-item-basic dip-boundary">
                     _
                 </div>
-                <div class="dip-item dip-checkbox">
+                <div class="dip-item-basic dip-checkbox">
                     <input type="checkbox" id="box1" class="larger-Checkbox" onchange="invertImage()">
                 </div>
-                <div class="dip-item dip-label">
+                <div class="dip-item-basic dip-label">
                     Invert
                 </div>
-                <div class="dip-item dip-ui">
+                <div class="dip-item-basic dip-ui">
                     UI
                 </div>
-                <div class="dip-item dip-boundary">
+                <div class="dip-item-basic dip-boundary">
                     _
                 </div>
                 <!-- Threshold -->
-                <div class="dip-item dip-boundary">
+                <div class="dip-item-basic dip-boundary">
                     _
                 </div>
-                <div class="dip-item dip-checkbox">
+                <div class="dip-item-basic dip-checkbox">
                     <input type="checkbox" id="T-Toggle" class="larger-Checkbox" onchange="thresholdImage()">
                 </div>
-                <div class="dip-item dip-label">
+                <div class="dip-item-basic dip-label">
                     Threshold
                 </div>
-                <div class="dip-item dip-ui">
+                <div class="dip-item-basic dip-ui">
                     <input type="range" min="0" max="255" value="127" class="slider" id="T-Range" oninput="this.nextElementSibling.value = this.value" onchange="thresholdImage()">
                     <output>127</output>
                 </div>
-                <div class="dip-item dip-boundary">
+                <div class="dip-item-basic dip-boundary">
                     _
                 </div>
             </div>
 
             <div id="invert" class="dip-content dip-morph">
-                <div>Peep2</div>
+                <!-- Filter Shape Grid -->
+                <div class="dip-item-morph dip-boundary-two" style="height: 200px;">
+                    _
+                </div>
+                <div class="dip-item-morph dip-morph-filter">
+                    Filter Grid
+                </div>
+                <div class="dip-item-morph dip-boundary-two" style="height: 200px;">
+                    _
+                </div>
+                <!-- Filter Shape Grid -->
+                <div class="dip-item-morph" style="height: 100px; width: 32%;">
+                    _
+                </div>
+                <div class="dip-item-morph dip-morph-template">
+                    _
+                </div>
+                <div class="dip-item-morph dip-morph-toggle">
+                    _
+                </div>
+                <div class="dip-item-morph" style="height: 100px; width: 32%;">
+                    _
+                </div>
             </div>
         </div>
 

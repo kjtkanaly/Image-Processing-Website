@@ -66,7 +66,8 @@ function OnLoadEvent() {
     ImageLabel.textContent = newImgsLabels[0];
 
     // Setting the initial content to visible
-    let content = document.getElementsByClassName("dip-content dip-basic");
+    //let content = document.getElementsByClassName("dip-content dip-basic");
+    let content = document.getElementsByClassName("dip-content dip-morph");
 
     for (let i = 0; i < content.length; i++) {
         content[i].style.display = "block";
