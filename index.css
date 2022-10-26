@@ -229,10 +229,11 @@ body {
 /*****************************************
 * DIP CSS -- Begin
 *****************************************/
-.dip-tab {
+.image-processing-window .dip-tab {
     overflow: hidden;
     border-bottom: 2px solid var(--black);
     background-color: var(--darkGray);
+    height: 8%;
 }
 
 .dip-tab button {
@@ -246,6 +247,7 @@ body {
     transition: 0.3s;
     font-size: 20px;
     width: 50%;
+    height: 100%;
 }
 
 .dip-tab button:last-child {
@@ -260,7 +262,8 @@ body {
     background-color: var(--white);
 }
 
-.dip-content {
+.image-processing-window .dip-content {
+    height: 92%;
     display: none;
 }
 
@@ -283,11 +286,8 @@ body {
 
 .dip-item-morph {
     display: inline-table;
-    float: left;    
     text-align: center;
     font-size: 24px;
-    height: 50px;
-    line-height: 50px;
     border: 1px solid red;
 }
 
@@ -307,21 +307,25 @@ body {
     width: 30%;
 }
 
-.dip-morph-toggle {
+.dip-content .dip-morph-toggle {
     width: 100%;
-    height: 100px;
-    line-height: 100px;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.dip-morph-filter {
+.dip-content .dip-morph-selection {
     width: 100%;
-    height: 350px;
-    padding-top: 20px;
+    height: 30%;
 }
 
-.dip-morph-selection {
+.dip-content .dip-morph-filter {
     width: 100%;
-    height: 300px;
+    height: 60%;
+    display: flex;
+    
+    align-items: center;
 }
 
 .larger-Checkbox {
@@ -350,6 +354,34 @@ body {
 }
 
 .button-holder button.active {
+    background-color: var(--white);
+}
+
+.dip-morph-selection .morph-selection-label {
+    height: 10%;
+}
+
+.dip-morph-selection button {
+    background-color: inherit;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 22px;
+    width: 50%;
+    height: 30%;
+    padding: 5px;
+    border: none;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+}
+
+.dip-morph-selection button:hover {
+    background-color: var(--darkGray);
+}
+
+.dip-morph-selection button.active {
     background-color: var(--white);
 }
 /*****************************************

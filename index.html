@@ -102,15 +102,24 @@
             <div id="invert" class="dip-content dip-morph">
                 <!-- Filter Toggle and presets -->
                 <div class="dip-item-morph dip-morph-toggle">
-                    On/Off
+                    On/Off:
                     <input type="checkbox" id="Morph-Toggle" class="larger-Checkbox">
+                </div>
+                <!-- Filter Type Selection -->
+                <div class="dip-item-morph dip-morph-selection">
+                    <div class="morph-selection-label">Filter Selection</div><br>
+                    <button>Mean</button>
+                    <button style="border-right: none;">Median</button>
+                    <button>Dilate</button>
+                    <button style="border-right: none;">Erode</button>
+                    <button>Open</button>
+                    <button style="border-right: none;">Close</button>
                 </div>
                 <!-- Filter Shape Grid and presets -->
                 <div class="dip-item-morph dip-morph-filter">
-                    
                     <div id="Button_Holder" class="button-holder"></div>
-                    
-                    <select name="gate" id="filter-gate">
+                    <select name="gate" id="filter-gate" class="template-dropdown">
+                        <option value="3x3_square">Custom</option>
                         <option value="3x3_square">3x3 - Square</option>
                         <option value="3x3_square">5x5 - Square</option>
                         <option value="3x3_square">3x3 - Cross</option>
@@ -118,9 +127,6 @@
                         <option value="3x3_square">3x1 - Line</option>
                         <option value="3x3_square">1x3 - Line</option>
                     </select>
-                </div>
-                <div class="dip-item-morph dip-morph-selection">
-                    Selection
                 </div>
             </div>
         </div>
