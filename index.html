@@ -99,25 +99,26 @@
                 </div>
             </div>
 
-            <div id="invert" class="dip-content dip-morph">
-                <!-- Filter Toggle and presets -->
-                <div class="dip-item-morph dip-morph-toggle">
-                    On/Off:
+            <div class="dip-content dip-morph">
+                <div class="morph-content" style="height: 10%;">
+                    <label>On/Off: </label>
                     <input type="checkbox" id="Morph-Toggle" class="larger-Checkbox">
                 </div>
-                <!-- Filter Type Selection -->
-                <div class="dip-item-morph dip-morph-selection">
-                    <div class="morph-selection-label">Filter Selection</div><br>
-                    <button>Mean</button>
-                    <button style="border-right: none;">Median</button>
-                    <button>Dilate</button>
-                    <button style="border-right: none;">Erode</button>
-                    <button>Open</button>
-                    <button style="border-right: none;">Close</button>
+                <div class="morph-content" style="height: 10%;">
+                    <h4>Filter Selection</h4>
                 </div>
-                <!-- Filter Shape Grid and presets -->
-                <div class="dip-item-morph dip-morph-filter">
+                <div class="morph-content" style="height: 10%;">
+                    <button>Mean</button>
+                    <button>Median</button>
+                    <button>Dilate</button>
+                    <button>Erode</button>
+                    <button>Open</button>
+                    <button>Close</button>
+                </div>
+                <div class="morph-content" style="height: 50%;">
                     <div id="Button_Holder" class="button-holder"></div>
+                </div>
+                <div class="morph-content" style="height: 20%;">
                     <select name="gate" id="filter-gate" class="template-dropdown">
                         <option value="3x3_square">Custom</option>
                         <option value="3x3_square">3x3 - Square</option>
@@ -129,6 +130,7 @@
                     </select>
                 </div>
             </div>
+
         </div>
 
         <div class="footer-window">

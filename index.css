@@ -266,6 +266,7 @@ body {
 .image-processing-window .dip-content {
     height: 92%;
     display: none;
+    border: 1px solid red;
 }
 
 .dip-content::after {
@@ -274,6 +275,83 @@ body {
     display: table;
 }
 
+
+/* Morph-Processing CSS */
+.dip-content .morph-content {
+    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.morph-content label {
+    font-size: 20px;
+}
+
+.morph-content h4 {
+    padding: 0px;
+    margin: 0px;
+    font-size: 24px;
+}
+
+.larger-Checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.morph-content button{
+    background-color: inherit;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 22px;
+    width: 50%;
+    height: 50px;
+    padding: 5px;
+    border: none;
+    border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    border-right: 1px solid var(--black);
+}
+
+.morph-content button:hover {
+    background-color: var(--darkGray);
+}
+
+.morph-content button.active {
+    background-color: var(--white);
+}
+
+.morph-content button:last-child {
+    border-right: none;
+}
+
+.button-holder button{
+    background-color: inherit;
+    border: none;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+    outline: none;
+    margin: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+}
+
+.button-holder button:hover {
+    background-color: var(--darkGray);
+}
+
+.button-holder button.active {
+    background-color: var(--white);
+}
+
+
+
+/* Basic-Processing CSS */
 .dip-item-basic {
     display: inline-table;
     float: left;    
@@ -285,19 +363,8 @@ body {
     border-bottom: 1px solid var(--black);
 }
 
-.dip-item-morph {
-    display: inline-table;
-    text-align: center;
-    font-size: 24px;
-    border: 1px solid red;
-}
-
 .dip-boundary {
     width: 20%;
-}
-
-.dip-checkbox {
-    width: 10%;
 }
 
 .dip-label {
@@ -308,83 +375,7 @@ body {
     width: 30%;
 }
 
-.dip-content .dip-morph-toggle {
-    width: 100%;
-    height: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.dip-content .dip-morph-selection {
-    width: 100%;
-    height: 30%;
-}
-
-.dip-content .dip-morph-filter {
-    width: 100%;
-    height: 60%;
-    display: flex;
-    
-    align-items: center;
-}
-
-.larger-Checkbox {
-    width: 20px;
-    height: 20px;
-}
-
-.button-holder button{
-    background-color: inherit;
-    float: center;
-    border: none;
-    border: 2px solid var(--black);
-    border-radius: 4px;
-    outline: none;
-    margin-left: 8px;
-    margin-right: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 18px;
-    width: 30px;
-    height: 30px;
-}
-
-.button-holder button:hover {
-    background-color: var(--darkGray);
-}
-
-.button-holder button.active {
-    background-color: var(--white);
-}
-
-.dip-morph-selection .morph-selection-label {
-    height: 100%;
-}
-
-.dip-morph-selection button {
-    background-color: inherit;
-    float: left;
-    outline: none;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 22px;
-    width: 50%;
-    height: 20%;
-    padding: 5px;
-    border: none;
-    border-top: 1px solid var(--black);
-    border-bottom: 1px solid var(--black);
-    border-right: 1px solid var(--black);
-}
-
-.dip-morph-selection button:hover {
-    background-color: var(--darkGray);
-}
-
-.dip-morph-selection button.active {
-    background-color: var(--white);
-}
 /*****************************************
 * DIP CSS -- End
 *****************************************/
