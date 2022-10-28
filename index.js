@@ -277,9 +277,9 @@ function SetActive(evt) {
     }
 }
 
-
-const observer = new MutationObserver(FilterButtonCallBack);
-const options = {
+// Filter Gate observer
+const FilterGateObserver = new MutationObserver(FilterGateCallBack);
+const FilterGateObserverOptions = {
     attributes: true
 }
 
@@ -293,7 +293,7 @@ function makeButtons() {
             btn.setAttribute("class", "Filter-Gate-Button");
             btnHolder.append(btn);
 
-            observer.observe(btn, options)
+            FilterGateObserver.observe(btn, FilterGateObserverOptions)
         }
 
         let brk = document.createElement("br");
@@ -301,7 +301,7 @@ function makeButtons() {
     }
 }
 
-function FilterButtonCallBack(mutationRecord){
+function FilterGateCallBack(mutationRecord){
     for (let i = 0; i < mutationRecord.length; i++)
     {
         console.log(mutationRecord[i].target.className);
