@@ -44,6 +44,8 @@ var MainCanvas;
 var MainCanvasContext;
 var OriginalImageData;
 var ImageLabel;
+var ImageSelectionButtons;
+var SelectedImageIndex;
 
 // Image processing elements
 var invertToggle;
@@ -54,6 +56,7 @@ var thresholdSlider;
 var numberOfRows = 5;
 var numberOfCols = 5;
 
+/////////////////////////////////////////////
 function OnLoadEvent() {
     // Setting the "Home" tab active on the Nav Bar
     document.getElementById("Default-Nav").style.backgroundColor = white;
@@ -63,13 +66,11 @@ function OnLoadEvent() {
     MainCanvas = document.getElementById('Canvas1');
     MainCanvasContext = MainCanvas.getContext("2d", {willReadFrequently: true});
     ImageLabel = document.getElementById("Image1Label");
+    ImageSelectionButtons = document.getElementsByClassName("imageLinks");
 
     // Grabbing the Image Processing related elements
     thresholdToggle = document.getElementById("T-Toggle");
     thresholdSlider = document.getElementById("T-Range");
-
-    // Draw the loaded image onto the canvas
-    UpdateImageDisplay();
 
     // Preloading every image the user can select
     for (let i = 0; i < imageFileNames.length; i++) 
@@ -78,8 +79,15 @@ function OnLoadEvent() {
         PageImages[i].src = ("Images/" + imageFileNames[i]);
     }
 
+    // Highlighting the default image option
+    ImageSelectionButtons[1].className += " active";
+
+    // Draw the initial image onto the canvas
+    SelectedImageIndex = 1;
+    UpdateImageDisplay();
+
     // Setting the Image Label to reflect the default image
-    ImageLabel.textContent = imageLabels[0];
+    ImageLabel.textContent = imageLabels[SelectedImageIndex];
 
     // Making the default DIP tab to visible
     //let content = document.getElementsByClassName("dip-content dip-basic"); // Basics-tab
@@ -88,10 +96,18 @@ function OnLoadEvent() {
         content[i].style.display = "block";
     }
 
+    // Applying the observer to the Image selction buttons
+    for (let i = 0; i < ImageSelectionButtons.length; i++)
+    {
+        ImageSelectionObserver.observe(ImageSelectionButtons[i], ImageSelectionObserverOptions);
+    }
+
     // Making our morphological grid
     makeButtons();
 }
+/////////////////////////////////////////////
 
+/////////////////////////////////////////////
 // Highlights the current nav tab
 function SelectNav(element) {
     let Options = document.getElementsByClassName("nav-li");
@@ -107,11 +123,13 @@ function SelectNav(element) {
 
     element.style.backgroundColor = white;
 }
+/////////////////////////////////////////////
 
+/////////////////////////////////////////////
+// Toggle regular buttons
 function ToggleButton(elm) {
-    let cls = elm.className;
 
-    if (cls.includes(" active"))
+    if (elm.className.includes(" active"))
     {
         elm.className = elm.className.replace(" active", "");
     } 
@@ -119,46 +137,37 @@ function ToggleButton(elm) {
     {
         elm.className += " active";
     }
+
 }
+/////////////////////////////////////////////
 
-// Highlights the now active image tab and loads the corresponding image
-function imageSelect(evt) {
-    let options = document.getElementsByClassName("imageLinks");
+/////////////////////////////////////////////
+// Toggle selection buttons
+function ToggleSelection(elm) {
 
-    for (let i = 0; i < options.length; i++) {
-        options[i].className = options[i].className.replace(" active", "");
-    }
-
-    // Displaying the current image
-    for (let i = 0; i < options.length; i++)
-    {
-        if (options[i] == evt.currentTarget)
+    for (let i = 0; i < ImageSelectionButtons.length; i++) {
+        if (ImageSelectionButtons[i] == elm) 
         {
-            MainImage.src = PageImages[i].src;    
-            
-            // Draw the loaded image onto the canvas
+            SelectedImageIndex = i;
+            ImageSelectionButtons[i].className += " active";
+
             UpdateImageDisplay();
-            
-            // Update image label
-            ImageLabel.textContent = imageLabels[i];
         }
-    }
-
-    evt.currentTarget.className += " active";
-
-    // Checking which Processes are active
-    checks = document.getElementsByClassName("dip-checkbox");
-
-    for (let i = 0; i < checks.length; i++) 
-    {
-        if (checks[i].children[0].checked == true)
+        else if (ImageSelectionButtons[i].className.includes(" active"))
         {
-            checks[i].children[0].onchange();
+            ImageSelectionButtons[i].className = ImageSelectionButtons[i].className.replace(" active", "");
         }
     }
-}
 
+}
+/////////////////////////////////////////////
+
+/////////////////////////////////////////////
+// Update the image display
 function UpdateImageDisplay() {
+
+    // Update image source
+    MainImage.src = PageImages[SelectedImageIndex].src; 
 
     // Logging the scale of the new image compared to the canvas
     var scaleWidth = MainCanvas.width / MainImage.width;
@@ -167,6 +176,9 @@ function UpdateImageDisplay() {
     // Wipping and then drawing the new image
     MainCanvasContext.clearRect(0, 0, MainCanvas.width, MainCanvas.height);
     MainCanvasContext.drawImage(MainImage, 0, 0, MainImage.width*scaleWidth, MainImage.height*scaleHeight);
+
+    // Update image label
+    ImageLabel.textContent = imageLabels[SelectedImageIndex];
 
     // Grabbing the new canvas data
     var imageData = MainCanvasContext.getImageData(0, 0, MainCanvas.width, MainCanvas.height);
@@ -179,6 +191,24 @@ function UpdateImageDisplay() {
     }
 
 }
+/////////////////////////////////////////////
+
+/////////////////////////////////////////////
+// Image Selection observer
+const ImageSelectionObserver = new MutationObserver(ImageSelectionButtonCallback);
+const ImageSelectionObserverOptions = {
+    attributes: true 
+}
+
+function ImageSelectionButtonCallback(mutationRecord) {
+    //console.log(ImageSelectionButtons[SelectedImageIndex].textContent);
+
+    
+}
+/////////////////////////////////////////////
+
+
+
 
 function dipSelect(evt) {
     let tabs = document.getElementsByClassName("tablinks");
@@ -278,9 +308,17 @@ function SetActive(evt) {
 }
 
 // Filter Gate observer
-const FilterGateObserver = new MutationObserver(FilterGateCallBack);
+const FilterGateObserver = new MutationObserver(FilterWindowButtonCallback);
 const FilterGateObserverOptions = {
     attributes: true
+}
+
+// Filter Window Button Callback Function
+function FilterWindowButtonCallback(mutationRecord){
+    for (let i = 0; i < mutationRecord.length; i++)
+    {
+        console.log(mutationRecord[i].target.className);
+    }
 }
 
 function makeButtons() {
@@ -293,18 +331,11 @@ function makeButtons() {
             btn.setAttribute("class", "Filter-Gate-Button");
             btnHolder.append(btn);
 
-            FilterGateObserver.observe(btn, FilterGateObserverOptions)
+            FilterGateObserver.observe(btn, FilterGateObserverOptions);
         }
 
         let brk = document.createElement("br");
         btnHolder.append(brk);
-    }
-}
-
-function FilterGateCallBack(mutationRecord){
-    for (let i = 0; i < mutationRecord.length; i++)
-    {
-        console.log(mutationRecord[i].target.className);
     }
 }
 
